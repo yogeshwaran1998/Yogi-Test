@@ -1,0 +1,42 @@
+11:41:48.342 [main] INFO  basefiles.base - Driver is initialized for DashboardValidate class
+11:41:50.451 [main] INFO  basefiles.base - Navigated to given URL for DashboardValidate class
+11:41:52.601 [main] INFO  basefiles.base - User credentials entered and clicked on Signin Button [Data driven from Properties file]
+11:41:56.713 [main] INFO  basefiles.base - Returned the boolean value for Dashboard element
+11:41:56.715 [main] INFO  basefiles.base - Validation successfull, Dashboard element exists in the webpage
+11:41:57.043 [main] INFO  basefiles.base - Closed the browser for DashboardValidate class
+12:08:31.282 [main] INFO  basefiles.base - Driver is initialized for DashboardValidate class
+12:08:37.443 [main] INFO  basefiles.base - Navigated to given URL for DashboardValidate class
+12:08:38.364 [main] INFO  basefiles.base - User credentials entered and clicked on Signin Button [Data driven from Properties file]
+12:08:44.589 [main] INFO  basefiles.base - Returned the boolean value for Dashboard element
+12:08:44.591 [main] INFO  basefiles.base - Validation successfull, Dashboard element exists in the webpage
+12:08:44.708 [main] INFO  basefiles.base - Closed the browser for DashboardValidate class
+12:11:03.312 [main] INFO  basefiles.base - Driver is initialized for SigninPage class
+12:11:06.586 [main] INFO  basefiles.base - Navigated to Given URL for SigninPage class
+12:11:08.052 [main] INFO  basefiles.base - User credentials entered and clicked on Signin Button for the user 1 [Data driven from DataProvider method]
+12:11:08.647 [main] INFO  basefiles.base - Navigated to Given URL for SigninPage class
+12:11:09.070 [main] INFO  basefiles.base - User credentials entered and clicked on Signin Button for the user 2 [Data driven from DataProvider method]
+12:11:09.467 [main] INFO  basefiles.base - Closed the browser for SigninPage class
+12:11:14.853 [main] INFO  basefiles.base - Driver is initialized for ProjectNameValidate class
+12:11:22.106 [main] INFO  basefiles.base - Navigated to given URL for ProjectNameValidate class
+12:11:30.956 [main] INFO  basefiles.base - Closed the browser for ProjectNameValidation class
+12:11:35.408 [main] INFO  basefiles.base - Driver is initialized for DashboardValidate class
+12:11:40.362 [main] INFO  basefiles.base - Navigated to given URL for DashboardValidate class
+12:11:45.682 [main] INFO  basefiles.base - User credentials entered and clicked on Signin Button [Data driven from Properties file]
+12:11:50.765 [main] INFO  basefiles.base - Returned the boolean value for Dashboard element
+12:11:50.765 [main] INFO  basefiles.base - Validation successfull, Dashboard element exists in the webpage
+12:11:54.891 [main] INFO  basefiles.base - Closed the browser for DashboardValidate class
+12:12:24.449 [main] INFO  basefiles.base - Driver is initialized for SigninPage class
+12:12:28.718 [main] INFO  basefiles.base - Navigated to Given URL for SigninPage class
+12:12:32.189 [main] INFO  basefiles.base - User credentials entered and clicked on Signin Button for the user 1 [Data driven from DataProvider method]
+12:12:32.709 [main] INFO  basefiles.base - Navigated to Given URL for SigninPage class
+12:12:34.100 [main] INFO  basefiles.base - User credentials entered and clicked on Signin Button for the user 2 [Data driven from DataProvider method]
+12:12:34.244 [main] INFO  basefiles.base - Closed the browser for SigninPage class
+12:12:37.395 [main] INFO  basefiles.base - Driver is initialized for ProjectNameValidate class
+12:12:47.228 [main] INFO  basefiles.base - Navigated to given URL for ProjectNameValidate class
+12:12:52.685 [main] INFO  basefiles.base - Closed the browser for ProjectNameValidation class
+12:12:55.811 [main] INFO  basefiles.base - Driver is initialized for DashboardValidate class
+12:12:59.672 [main] INFO  basefiles.base - Navigated to given URL for DashboardValidate class
+12:13:03.020 [main] INFO  basefiles.base - User credentials entered and clicked on Signin Button [Data driven from Properties file]
+12:13:07.922 [main] INFO  basefiles.base - Returned the boolean value for Dashboard element
+12:13:07.922 [main] INFO  basefiles.base - Validation successfull, Dashboard element exists in the webpage
+12:13:08.087 [main] INFO  basefiles.base - Closed the browser for DashboardValidate class
