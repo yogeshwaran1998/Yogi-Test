@@ -1,0 +1,20 @@
+package testcases;
+
+public class practise {
+
+	public static void main(String[] args) {
+		
+		String s="-M7CooMMh-ucAcj2TBNX";
+		String a="'";
+		String x=a+s+a;
+		String y="//li[@id=";
+		
+		x=y+x+"']";
+		
+		String h="//input[@placeholder='MMM - DD - MMM - DD']";
+		
+		x=x+h;
+		
+		System.out.println(x);
+	}
+}

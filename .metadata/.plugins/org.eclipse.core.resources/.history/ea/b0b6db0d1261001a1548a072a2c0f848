@@ -1,0 +1,29 @@
+package test;
+
+import java.util.Scanner;
+
+public class random {
+	private static final Scanner scan = new Scanner(System.in);
+	
+	
+	public boolean newMethod()
+	{
+boolean flag=false;
+int n= scan.nextInt();
+if(n%2==0)
+	flag=true;
+return flag;
+		System.out.println(flag);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+random s = new random();
+s.newMethod();
+
+
+
+		
+	}
+
+}

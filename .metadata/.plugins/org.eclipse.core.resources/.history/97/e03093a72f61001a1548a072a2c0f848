@@ -1,0 +1,25 @@
+package test;
+
+import java.util.Scanner;
+
+public class random {
+	private static final Scanner scan = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		
+		//0 1 1 2 3 5 8 13 21
+		// TODO Auto-generated method stub
+int first=0;
+int sec=1;
+int tot=0;
+
+
+for(int i=0;i<6;i++)
+{
+	System.out.print(first);
+	
+	tot=first+sec;
+	
+}
+}
+}

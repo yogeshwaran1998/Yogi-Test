@@ -1,0 +1,20 @@
+package test;
+
+import java.util.Scanner;
+
+public class random {
+	private static final Scanner scan = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		
+	int a[]=new int[15];
+	
+	for(int s:a)
+	{
+		System.out.println(a);
+		
+	}
+		
+
+	}
+}

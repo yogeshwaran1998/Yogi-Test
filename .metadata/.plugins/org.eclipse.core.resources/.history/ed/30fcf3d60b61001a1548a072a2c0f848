@@ -1,0 +1,17 @@
+package test;
+
+import java.util.Scanner;
+
+public class random {
+	private static final Scanner scan = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	
+		for(int i=5;i<15;i++)
+		{
+		      System.out.println(++i);
+		}
+	}
+
+}

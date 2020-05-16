@@ -1,0 +1,14 @@
+package test;
+
+import java.util.Scanner;
+
+public class random {
+	private static final Scanner scan = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		int temp;
+		int a = 5;
+		int b = 6;
+
+	}
+}

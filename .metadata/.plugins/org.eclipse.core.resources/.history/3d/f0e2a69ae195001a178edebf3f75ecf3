@@ -1,0 +1,98 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Linarc_TasksCreate_Objects {
+
+	public WebDriver driver;
+
+	public Linarc_TasksCreate_Objects(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(id="username")
+	WebElement username;
+	
+	@FindBy(id="password")
+	WebElement password;
+	
+	@FindBy(xpath="//button[contains(text(),'Sign in')]")
+	WebElement signin;
+	
+	@FindBy(xpath="//div[@class='multiselect form-select is-transparent']//div[@class='multiselect__select']")
+	WebElement projectsDropdown;
+	
+	@FindBy(xpath="//span[contains(text(),'Aquas Towers')]")
+    WebElement projectSelect;		
+	
+	@FindBy(xpath="//span[contains(text(),'Tasks')]")
+	WebElement tasksPage;
+	
+	@FindBy(xpath="//button[@class='btn-add-task']")
+	WebElement addTask;
+	
+	@FindBy(xpath="//input[@placeholder='Enter Task code (eg: 01)']")
+	WebElement taskBox;
+
+	@FindBy(xpath="//li[contains(text(),'10 Waterproofing')]")
+	WebElement taskCategory;
+	
+	@FindBy(xpath="//strong[contains(text(),'10600')]")
+	WebElement selectTask;
+	
+	@FindBy(xpath="//button[@class='btn-default']")
+	WebElement addButton;
+	
+	
+	public WebElement username()
+	{
+		return username;
+	}
+	
+	public WebElement password() {
+		return password;
+	}
+	
+	public WebElement signin()
+	{
+		return signin;
+	}
+	public WebElement projectsDropdown()
+	{
+		return projectsDropdown;
+	}
+	public WebElement projectSelect()
+	{
+		return projectSelect;
+	}
+	public WebElement tasksPage()
+	{
+		return tasksPage;
+	}
+
+	public WebElement addTask()
+	{
+		return addTask;
+	}
+	public WebElement taskBox()
+	{
+		return taskBox;
+	}
+	public WebElement taskCategory()
+	{
+		return taskCategory;
+	}
+	public WebElement selectTask()
+	{
+		return selectTask;
+	}
+	
+	public WebElement addButton()
+	{
+		return addButton;
+	}
+}

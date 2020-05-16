@@ -1,0 +1,168 @@
+package testcases;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import basefiles.base;
+import pageObjects.Linarc_Company_Objects;
+
+public class Linarc_Company extends base {
+
+	public static Logger Log = LogManager.getLogger(base.class.getName());
+
+	@BeforeTest
+	public void initialize() throws IOException {
+		driver = initializeDriver();
+		driver.get(prop.getProperty("linarcURL"));
+	}
+
+	@Test
+	public void createCompany() throws InterruptedException, IOException {
+
+		Linarc_Company_Objects obj = new Linarc_Company_Objects(driver);
+
+		obj.getuname().sendKeys("globaladmin");
+		obj.getpassword().sendKeys("1LinarcTester@");
+		obj.getsignin().click();
+
+		obj.getaddCompany().click();
+		obj.getcompanyName().sendKeys("Swan Lake");
+
+		Select a = new Select(obj.getyears());
+		a.selectByIndex(2);
+
+		// driver.findElement(By.xpath("//select[@id='years-in-operation']"));
+
+		obj.getwebsite().sendKeys("www.swanlake.com");
+
+		obj.getofficeNumber().sendKeys("11523467831");
+
+		WebElement map = obj.getmapLocation();
+		map.sendKeys("Mantri Synergy");
+		Thread.sleep(2000);
+		map.sendKeys(Keys.ARROW_DOWN);
+		map.sendKeys(Keys.ENTER);
+		obj.getconstructionType().click();
+
+		Select b = new Select(obj.getprimaryBusiness());
+		b.selectByIndex(0);
+		// driver.findElement(By.xpath("//select[@id='primary']"));// primary business
+
+		WebElement primary = obj.getspl();
+		primary.click();
+		Thread.sleep(2000);
+		obj.getselectSpl().click();
+
+		// driver.findElement(By.xpath("//input[@id='special']")).sendKeys("Design");
+
+		// primary.sendKeys("Design");
+		// primary.sendKeys(Keys.ENTER);
+
+		// driver.findElement(By.xpath("//div[@class='multiselect__tags']")); // search
+		// or add specialties
+
+		obj.gettasks().click();// adding task categories
+
+		obj.getselTasks().click();
+		obj.getblankClick().click();
+
+		obj.getfirstName().sendKeys("Yogesh");// first name
+		obj.getlastName().sendKeys("Waran");// last name
+		obj.getfirstJob().sendKeys("Owner");// job title
+		obj.getfirstNumber().sendKeys("11929564991");// phone // number
+		obj.getfirstEmail().sendKeys("sa1zz45aq1f@mailinator.com");// email
+
+		obj.getsecondName().sendKeys("Chendo");// first name
+		obj.getsecondLastName().sendKeys("Potto");// last name
+		obj.getsecondJob().sendKeys("Admin");// job title
+		obj.getsecondNumber().sendKeys("11929864891");
+		obj.getsecondEmail().sendKeys("chenzza1ed@mailinator.com");// email
+
+		WebElement state = obj.getlicenseState(); // license state
+		state.sendKeys("Wash");
+		Thread.sleep(2000);
+		state.sendKeys(Keys.ARROW_DOWN);
+		state.sendKeys(Keys.ENTER);
+		Select c = new Select(obj.getlicenseType());
+		c.selectByIndex(1);
+		// driver.findElement(By.xpath("//select[@id='licenseType']"));// License type
+
+		obj.getlicenseNumber().sendKeys("14622");// License number
+		obj.getlicenseExpiry().click();
+		obj.getcalanderNavigate().click();
+
+		obj.getselectDate().click(); // clicking on license
+										// expire date
+		Thread.sleep(10000);
+		obj.getsave().click();
+		Thread.sleep(10000);
+
+		// driver.findElement(By.xpath("//div[@class='notification-content']")); If any
+		// error occurs this will check
+
+		FileInputStream fis = new FileInputStream("D:\\demo.xlsx");
+
+		// load the input stream to a workbook object
+		// Use XSSF for (.xlsx) excel file and HSSF for (.xls) excel file
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+
+		// get the sheet from the workbook by index
+		XSSFSheet sheet = wb.getSheet("Sheet1");
+
+		// Count the total number of rows present in the sheet
+		int rowcount = sheet.getLastRowNum();
+		System.out.println(" Total number of rows present in the sheet : " + rowcount);
+
+		// get column count present in the sheet
+		int colcount = sheet.getRow(1).getLastCellNum();
+		System.out.println(" Total number of columns present in the sheet : " + colcount);
+
+		// get the data from sheet by iterating through cells
+		for (int i = 0; i < rowcount; i++) {
+
+			driver.findElement(By.xpath("//input[@id='first-name']"))
+					.sendKeys(sheet.getRow(i).getCell(0).getStringCellValue());
+			driver.findElement(By.xpath("//input[@id='last-name']"))
+					.sendKeys(sheet.getRow(i).getCell(1).getStringCellValue());
+			driver.findElement(By.xpath("//input[@id='job-title']"))
+					.sendKeys(sheet.getRow(i).getCell(2).getStringCellValue());
+
+			long id = (long) sheet.getRow(i).getCell(3).getNumericCellValue();
+
+			driver.findElement(By.xpath("//input[@id='employee-id']")).sendKeys(String.valueOf(id));
+
+			Select access = new Select(driver.findElement(By.xpath("//select[@id='access-level']")));
+			access.selectByIndex(i);
+
+			driver.findElement(By.xpath("//input[@id='email']"))
+					.sendKeys(sheet.getRow(i).getCell(4).getStringCellValue());
+			long phone = (long) sheet.getRow(i).getCell(5).getNumericCellValue();
+
+			driver.findElement(By.xpath("//div[@id='phone-number']//input[@placeholder='+1 ### ### ####']"))
+					.sendKeys(String.valueOf(phone));
+
+			if (i == rowcount)
+
+				driver.findElement(By.xpath("//button[@id='save']")).click();
+			else
+				driver.findElement(By.xpath("//button[@id='add']")).click();
+			Thread.sleep(5000);
+		}
+		fis.close();
+		wb.close();
+
+	}
+
+
+}

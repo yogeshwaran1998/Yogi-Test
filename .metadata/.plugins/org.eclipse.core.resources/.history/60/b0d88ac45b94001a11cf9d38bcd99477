@@ -1,0 +1,101 @@
+package test;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class linarc_project {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		driver.get("https://live-sprint-test.firebaseapp.com/login");
+		
+		driver.findElement(By.id("username")).sendKeys("johnl3883");
+		driver.findElement(By.id("password")).sendKeys("1LinarcTester@");
+		driver.findElement(By.xpath("//button[contains(text(),'Sign in')]")).click();
+		
+		driver.findElement(By.xpath("//div[@class='multiselect form-select is-transparent']//div[@class='multiselect__select']")).click();
+		
+		driver.findElement(By.xpath("//div[@class='pp-sidebar__header']//li[1]")).click();
+		
+		driver.findElement(By.xpath("(//div[@class='multiselect__select'])[1]")).click();
+		driver.findElement(By.xpath("((//div[@class='form-item'])[1] //li[@class='multiselect__element'])[1]")).click();
+		driver.findElement(By.xpath("(//div[@class='multiselect__select'])[2]")).click();
+		driver.findElement(By.xpath("((//div[@class='form-item'])[2] //li[@class='multiselect__element'])[2]")).click();
+		driver.findElement(By.xpath("(//div[@class='multiselect__select'])[3]")).click();
+		driver.findElement(By.xpath("((//div[@class='form-item'])[3] //li[@class='multiselect__element'])[1]")).click();
+		driver.findElement(By.xpath("(//div[@class='multiselect__select'])[4]")).click();
+		driver.findElement(By.xpath("((//div[@class='form-item'])[4] //li[@class='multiselect__element'])[1]")).click();
+		
+		driver.findElement(By.xpath("//button[@class='btn-default']")).click();
+		
+		driver.findElement(By.xpath("//input[@id='project-name']")).sendKeys("Dream Towers");
+		
+		driver.findElement(By.xpath("//input[@id='square-footage']")).sendKeys("50000");
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//input[@placeholder='MM/DD/YYYY - MM/DD/YYYY']")).sendKeys("05/17/2020 - 08/22/2020");
+		
+		driver.findElement(By.xpath("(//div[@class='multiselect__select'])[2]")).click();
+		driver.findElement(By.xpath("((//div[@class='form-item-input'])[5] //li[@class='multiselect__element'])[2]")).click();
+		
+        driver.findElement(By.xpath("//textarea[@id='description']")).sendKeys("Test project");
+        
+        driver.findElement(By.xpath("//button[contains(text(),'Next')]")).click();
+        
+        Thread.sleep(5000);
+        
+   Actions ac= new Actions(driver);
+   
+   WebElement map = driver.findElement(By.xpath("//input[@placeholder='Search map location']"));
+	map.sendKeys("Mantri Synergy");
+	Thread.sleep(2000);
+	map.sendKeys(Keys.ARROW_DOWN);
+	map.sendKeys(Keys.ENTER);
+  
+   
+   driver.switchTo().alert().accept();
+   
+   //driver.findElement(By.xpath("//div[@class='gm-style']//div[1]//div[1]//button[2]")).click();
+   
+   //Thread.sleep(10000);
+   
+// WebElement p1=  driver.findElement(By.xpath("//body[@class='app header-fixed']//div[@class='gm-style']//div//div//div//div[3]//div[1]//div[1]"));
+// 
+// Point points1= p1.getLocation();
+// int x1= points1.getX();
+//	int y1= points1.getY();
+//	System.out.println(x1);
+//	System.out.println(y1);
+   
+   
+   
+   
+ 
+ Thread.sleep(10000);
+   
+   ac.moveByOffset(686, 382).click().build().perform();
+   Thread.sleep(2000);
+   ac.moveByOffset(-50, 100).click().build().perform();
+	Thread.sleep(2000);
+	ac.moveByOffset(200, -40).doubleClick().build().perform();
+	Thread.sleep(3000);
+	
+	driver.findElement(By.xpath("//button[contains(text(),'Next')]")).click();
+
+	}
+
+}

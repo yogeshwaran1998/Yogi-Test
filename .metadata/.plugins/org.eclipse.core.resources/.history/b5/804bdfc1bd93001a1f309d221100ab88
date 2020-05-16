@@ -1,0 +1,44 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Linarc_Company_Objects {
+
+	
+	public WebDriver driver;
+	
+	public Linarc_Company_Objects(WebDriver driver)
+	{
+		this.driver= driver;
+	}
+	
+	By uname= By.id("username");
+	By password= By.id("1LinarcTester@");
+	By signin= By.xpath("//button[contains(text(),'Sign in')]");
+	By addCompany = By.xpath("//button[contains(text(),'Sign in')]");
+	By companyName = By.xpath("//input[@id='company-name']");
+	By years= By.xpath("//select[@id='years-in-operation']");
+	By officeNumber= By.xpath("//select[@id='years-in-operation']");
+	By mapLocation= By.xpath("//input[@placeholder='Search map for Address']");
+	By constructionType= By.xpath("//label[contains(text(),'Commercial')]");
+	By primaryBusiness= By.xpath("//select[@id='primary']");
+	By spl= By.xpath("//span[@class='multiselect__placeholder']");
+	By selectSpl= By.xpath("//span[contains(text(),'Contract Administration')]");
+	By tasks= By.xpath("//input[@placeholder='Add Task Categories']");
+	By selTasks= By.xpath("//input[@value='WATERPROOFING']");
+	By blankClick= By.xpath("//div[@class='content-wrapper']");
+	
+	By firstName = By.xpath("//form[3]//div[1]//div[2]//div[1]//input[1]");
+	By lastName= By.xpath("//form[3]//div[1]//div[2]//div[2]//input[1]");
+	By firstJob= By.xpath("//form[3]//div[1]//div[2]//div[3]//input[1]");
+	By firstNumber= By.xpath("//form[3]//div[1]//div[3]//div[1]//div[1]//input[1]");
+	By firstEmail= By.xpath("//form[3]//div[1]//div[3]//div[2]//input[1]");
+	
+	
+	By secondName = By.xpath("//form[4]//div[1]//div[2]//div[1]//input[1]");
+	By secondLastName= By.xpath("//form[4]//div[1]//div[2]//div[2]//input[1]");
+	By secondJob= By.xpath("//form[4]//div[1]//div[2]//div[3]//input[1]");
+	By secondNumber= By.xpath("//form[4]//div[1]//div[3]//div[1]//div[1]//input[1]");
+	By secondEmail= By.xpath("//form[4]//div[1]//div[3]//div[2]//input[1]");
+}

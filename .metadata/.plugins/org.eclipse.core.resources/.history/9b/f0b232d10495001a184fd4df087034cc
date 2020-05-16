@@ -1,0 +1,73 @@
+package testcases;
+
+import java.io.IOException;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import basefiles.base;
+import pageObjects.Linarc_TasksCreate_Objects;
+
+public class Linarc_TaskCreate extends base {
+
+	@BeforeTest
+	public void initialize() throws IOException {
+
+		driver = initializeDriver();
+		driver.get(prop.getProperty("linarcLive"));
+	}
+
+	@Test
+	public void createTasks() throws InterruptedException {
+
+		Linarc_TasksCreate_Objects obj = new Linarc_TasksCreate_Objects(driver);
+		
+		obj.username().sendKeys("johnl3883");
+		obj.password().sendKeys("1LinarcTester@");
+		obj.signin().click();
+		obj.projectsDropdown().click();
+		obj.projectSelect().click();
+		
+		obj.tasksPage().click();
+		Thread.sleep(5000);
+//		obj.addTask().click();
+//		obj.taskBox().sendKeys("10");
+//		Thread.sleep(3000);
+//		obj.taskCategory().click();
+//		obj.selectTask().click();
+//		obj.addButton().click();
+		
+		List<WebElement> tasksCount = driver.findElements(By.xpath("//li[@class='task-list-item list-tasks__item']"));
+
+		for (int i = 0; i < tasksCount.size(); i++) {
+			//WebElement r = tasksCount.get(i);
+
+			String result = tasksCount.get(i).findElement(By.xpath("//a[@class='code']")).getText();
+			System.out.println(result);
+
+			if (result.contains("10700")) {
+				r.findElement(By.xpath("//input[@placeholder='MMM - DD - MMM - DD']")).click();
+				String month = driver.findElement(By.xpath("//div[@class='c-title']")).getText();
+
+				if (month.contains("May 2020")) {
+					
+					driver.findElement(By.xpath("//div[contains(@text,'13')]")).click();
+					driver.findElement(By.xpath("//div[contains(@text,'30')]")).click();
+
+				}
+				
+				//break;
+
+			}
+			
+			else {
+				System.out.println("Match not found");
+			}
+			
+		}
+		
+		
+	}
+}

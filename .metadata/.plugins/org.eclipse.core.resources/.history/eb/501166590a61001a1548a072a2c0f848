@@ -1,0 +1,16 @@
+package test;
+
+import java.util.Scanner;
+
+public class random {
+	private static final Scanner scan = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int n=5;
+		
+	int s= (n<5)? 100: 20;
+	System.out.println(s);
+	}
+
+}

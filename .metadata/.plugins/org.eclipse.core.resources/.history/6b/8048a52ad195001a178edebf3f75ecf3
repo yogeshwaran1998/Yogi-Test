@@ -1,0 +1,17 @@
+package testcases;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class practise {
+
+	public static void main(String[] args) {
+		
+		List<String> list = new ArrayList<String>();
+		list.add("s");
+		list.add("a");
+		list.add("j");
+		
+		System.out.println(list.size());
+	}
+}

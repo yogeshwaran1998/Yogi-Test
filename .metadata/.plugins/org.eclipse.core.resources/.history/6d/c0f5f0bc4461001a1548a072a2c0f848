@@ -1,0 +1,32 @@
+package test;
+
+import java.util.Scanner;
+
+public class random {
+	private static final Scanner scan = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+int n=scan.nextInt();
+
+for(int i=1;i<=n;i++)
+{
+	if(n%1==0 && n%n==0)
+	{
+			
+	if(n%i==0)
+	{
+		
+		System.out.println("Not a prime number");
+	break;
+	}
+	}
+	else
+		System.out.println("It is prime number");
+
+}
+	
+	
+
+	}
+}

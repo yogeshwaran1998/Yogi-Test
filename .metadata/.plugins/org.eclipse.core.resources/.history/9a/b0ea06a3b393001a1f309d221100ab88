@@ -1,0 +1,209 @@
+package testcases;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+public class Linarc3 {
+	
+	public WebDriver driver;
+	 public ExtentSparkReporter htmlReporter;
+	 public ExtentReports extent;
+	 public ExtentTest logger;
+
+	@Test
+	public void test1() 
+	{
+		
+		 ExtentSparkReporter htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") +"\\reports\\LatestReport.html");
+     	// Create an object of Extent Reports
+            extent = new ExtentReports();  
+            
+           extent.attachReporter(htmlReporter);
+           extent.setSystemInfo("Host Name", "LinarcScripts");
+     	   extent.setSystemInfo("Environment", "Testing");
+           extent.setSystemInfo("User Name", "Yogeshwaran");
+         htmlReporter.config().setDocumentTitle("Title of the Report Comes here "); 
+             // Name of the report
+         htmlReporter.config().setReportName("Name of the Report Comes here "); 
+             // Dark Theme
+          htmlReporter.config().setTheme(Theme.STANDARD);
+
+	}
+
+	@Test
+	public void test2() throws InterruptedException, IOException {
+
+		extent.createTest("Web Module");
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.get("https://live-sprint-test.firebaseapp.com/login");
+
+		driver.findElement(By.id("username")).sendKeys("globaladmin");
+		driver.findElement(By.id("password")).sendKeys("1LinarcTester@");
+		driver.findElement(By.xpath("//button[contains(text(),'Sign in')]")).click();
+
+		driver.findElement(By.xpath("//button[@class='btn btn-dflt btn-middle btn-secondary']")).click();
+		driver.findElement(By.xpath("//input[@id='company-name']")).sendKeys("Swan Lake");
+
+		Select a = new Select(driver.findElement(By.xpath("//select[@id='years-in-operation']")));
+		a.selectByIndex(2);
+
+		// driver.findElement(By.xpath("//select[@id='years-in-operation']"));
+
+		driver.findElement(By.xpath("//input[@id='webSite']")).sendKeys("www.swanlake.com");
+		;
+		driver.findElement(By.xpath("//div[@id='office-phone-number']//input[@placeholder='+1 ### ### ####']"))
+				.sendKeys("11523467831");
+		;
+		WebElement map = driver.findElement(By.xpath("//input[@placeholder='Search map for Address']"));
+		map.sendKeys("Mantri Synergy");
+		Thread.sleep(2000);
+		map.sendKeys(Keys.ARROW_DOWN);
+		map.sendKeys(Keys.ENTER);
+		driver.findElement(By.xpath("//label[contains(text(),'Commercial')]")).click();
+
+		Select b = new Select(driver.findElement(By.xpath("//select[@id='primary']")));
+		b.selectByIndex(0);
+		// driver.findElement(By.xpath("//select[@id='primary']"));// primary business
+
+		WebElement primary = driver.findElement(By.xpath("//span[@class='multiselect__placeholder']"));
+		primary.click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text(),'Contract Administration')]")).click();
+
+		// driver.findElement(By.xpath("//input[@id='special']")).sendKeys("Design");
+
+		// primary.sendKeys("Design");
+		// primary.sendKeys(Keys.ENTER);
+
+		// driver.findElement(By.xpath("//div[@class='multiselect__tags']")); // search
+		// or add specialties
+
+		driver.findElement(By.xpath("//input[@placeholder='Add Task Categories']")).click();// adding task categories
+
+		driver.findElement(By.xpath("//input[@value='WATERPROOFING']")).click();
+		driver.findElement(By.xpath("//div[@class='content-wrapper']")).click();
+
+		driver.findElement(By.xpath("//form[3]//div[1]//div[2]//div[1]//input[1]")).sendKeys("Yogesh");// first name
+		driver.findElement(By.xpath("//form[3]//div[1]//div[2]//div[2]//input[1]")).sendKeys("Waran");// last name
+		driver.findElement(By.xpath("//form[3]//div[1]//div[2]//div[3]//input[1]")).sendKeys("Owner");// job title
+		driver.findElement(By.xpath("//form[3]//div[1]//div[3]//div[1]//div[1]//input[1]")).sendKeys("11929564991");// phone
+																													// number
+		driver.findElement(By.xpath("//form[3]//div[1]//div[3]//div[2]//input[1]"))
+				.sendKeys("sa1zz45aq1f@mailinator.com");// email
+		driver.findElement(By.xpath("//form[4]//div[1]//div[2]//div[1]//input[1]")).sendKeys("Chendo");// first name
+		driver.findElement(By.xpath("//form[4]//div[1]//div[2]//div[2]//input[1]")).sendKeys("Potto");// last name
+		driver.findElement(By.xpath("//form[4]//div[1]//div[2]//div[3]//input[1]")).sendKeys("Admin");// job title
+		driver.findElement(By.xpath("//form[4]//div[1]//div[3]//div[1]//div[1]//input[1]")).sendKeys("11929864891");
+		driver.findElement(By.xpath("//form[4]//div[1]//div[3]//div[2]//input[1]"))
+				.sendKeys("chenzza1ed@mailinator.com");// email
+
+		WebElement state = driver.findElement(By.xpath("//input[@id='state']")); // license state
+		state.sendKeys("Wash");
+		Thread.sleep(2000);
+		state.sendKeys(Keys.ARROW_DOWN);
+		state.sendKeys(Keys.ENTER);
+		Select c = new Select(driver.findElement(By.xpath("//select[@id='licenseType']")));
+		c.selectByIndex(1);
+		// driver.findElement(By.xpath("//select[@id='licenseType']"));// License type
+
+		driver.findElement(By.xpath("//input[@id='field-license-number-0']")).sendKeys("14622");
+		; // License number
+		driver.findElement(By.xpath("//input[@class='bg-disable-none']")).click();
+		driver.findElement(By.xpath("//div[@class='flex-wrap flex-wrap-equal']//div[2]//header[1]//span[3]")).click();
+
+		driver.findElement(By.xpath("//span[@class='cell day'][contains(text(),'21')]")).click(); // clicking on license
+																									// expire date
+
+		driver.findElement(By.xpath("//button[contains(text(),'Save')]")).click();
+		Thread.sleep(10000);
+
+		// driver.findElement(By.xpath("//div[@class='notification-content']")); If any
+		// error occurs this will check
+
+		FileInputStream fis = new FileInputStream("D:\\demo.xlsx");
+
+		// load the input stream to a workbook object
+		// Use XSSF for (.xlsx) excel file and HSSF for (.xls) excel file
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+
+		// get the sheet from the workbook by index
+		XSSFSheet sheet = wb.getSheet("Sheet1");
+
+		// Count the total number of rows present in the sheet
+		int rowcount = sheet.getLastRowNum();
+		System.out.println(" Total number of rows present in the sheet : " + rowcount);
+
+		// get column count present in the sheet
+		int colcount = sheet.getRow(1).getLastCellNum();
+		System.out.println(" Total number of columns present in the sheet : " + colcount);
+
+		// get the data from sheet by iterating through cells
+		for (int i = 0; i < rowcount; i++) {
+
+			driver.findElement(By.xpath("//input[@id='first-name']"))
+					.sendKeys(sheet.getRow(i).getCell(0).getStringCellValue());
+			driver.findElement(By.xpath("//input[@id='last-name']"))
+					.sendKeys(sheet.getRow(i).getCell(1).getStringCellValue());
+			driver.findElement(By.xpath("//input[@id='job-title']"))
+					.sendKeys(sheet.getRow(i).getCell(2).getStringCellValue());
+
+			long id = (long) sheet.getRow(i).getCell(3).getNumericCellValue();
+
+			driver.findElement(By.xpath("//input[@id='employee-id']")).sendKeys(String.valueOf(id));
+
+			Select access = new Select(driver.findElement(By.xpath("//select[@id='access-level']")));
+			access.selectByIndex(i);
+
+			driver.findElement(By.xpath("//input[@id='email']"))
+					.sendKeys(sheet.getRow(i).getCell(4).getStringCellValue());
+			long phone = (long) sheet.getRow(i).getCell(5).getNumericCellValue();
+
+			driver.findElement(By.xpath("//div[@id='phone-number']//input[@placeholder='+1 ### ### ####']"))
+					.sendKeys(String.valueOf(phone));
+
+			if (i == rowcount)
+
+				driver.findElement(By.xpath("//button[@id='save']")).click();
+			else
+				driver.findElement(By.xpath("//button[@id='add']")).click();
+			Thread.sleep(5000);
+		}
+		fis.close();
+		wb.close();
+		
+		logger.log(Status.PASS, "Main Script passed successfully");
+	}
+
+	@Test
+	public void test3() {
+		System.out.println("Successfully completed the test");
+		extent.createTest("Closing module");
+		extent.flush();
+		driver.close();
+	}
+}
