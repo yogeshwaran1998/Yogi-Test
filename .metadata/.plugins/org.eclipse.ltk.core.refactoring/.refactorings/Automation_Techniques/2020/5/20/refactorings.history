@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;Linarc3.java&apos; to &apos;E2E-Framework/src/test/java/testcases&apos;&#x0D;&#x0A;- Original project: &apos;Automation_Techniques&apos;&#x0D;&#x0A;- Destination element: &apos;E2E-Framework/src/test/java/testcases&apos;&#x0D;&#x0A;- Original element: &apos;test.Linarc3.java&apos;" description="Copy compilation unit" destination="=E2E-Framework/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;testcases" element1="/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;test{Linarc3.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1589220797802" units="1" version="1.0"/>
-</session>
