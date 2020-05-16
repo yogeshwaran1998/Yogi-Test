@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+
+<listener class-name="basefiles.Listeners"></listener>
+<listener class-name="basefiles.ExtentReporterNG"></listener>
+</listeners>
+	<test name="Sign-in">
+		<classes>
+			<class name="testcases.SigninPage" />
+		</classes>
+	</test>
+
+	<test name="Project-Validation">
+		<classes>
+			<class name="testcases.ProjectNameValidate" />
+		</classes>
+	</test>
+
+	<test name="Dashboard-Validation">
+		<classes>
+			<class name="testcases.DashboardValidate" />
+		</classes>
+	</test><!-- Test -->
+
+</suite> <!-- Suite -->
